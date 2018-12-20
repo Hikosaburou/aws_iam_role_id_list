@@ -10,7 +10,7 @@ def main():
     iam = boto3.client('iam')
     response = iam.list_roles()
 
-    header = ['RoleName', 'RoleId']
+    header = ['RoleId', 'RoleName']
     table = [[elm['RoleId'], elm['RoleName']] for elm in response['Roles']]
     sorted_table = sorted(table, key=lambda tbl: tbl[1])
 
